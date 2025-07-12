@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="v***REMOVED***ewport" content="w***REMOVED***dth=dev***REMOVED***ce-w***REMOVED***dth, ***REMOVED***n***REMOVED***t***REMOVED***al-scale=1.0"/>
+  <t***REMOVED***tle>回転ずし風Webページ</t***REMOVED***tle>
+  <style>
+    body {
+      marg***REMOVED***n: 0;
+      overflow: h***REMOVED***dden;
+    }
+    .belt {
+      pos***REMOVED***t***REMOVED***on: relat***REMOVED***ve;
+      w***REMOVED***dth: 100%;
+      he***REMOVED***ght: 150px;
+      overflow: h***REMOVED***dden;
+      wh***REMOVED***te-space: nowrap;
+    }
+    .sush***REMOVED*** {
+      d***REMOVED***splay: ***REMOVED***nl***REMOVED***ne-block;
+      w***REMOVED***dth: 100px;
+      he***REMOVED***ght: 100px;
+      marg***REMOVED***n: 20px;
+      background-***REMOVED***mage: url('./sush***REMOVED***s.png');
+      background-s***REMOVED***ze: 2048px 2048px;
+      background-repeat: no-repeat;
+      an***REMOVED***mat***REMOVED***on: move 30s l***REMOVED***near ***REMOVED***nf***REMOVED***n***REMOVED***te;
+    }
+    @keyframes move {
+      from {
+        transform: translateX(100vw);
+      }
+      to {
+        transform: translateX(-5000px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <d***REMOVED***v class="belt" ***REMOVED***d="belt">
+    <!-- JavaScr***REMOVED***ptでお寿司を追加 -->
+  </d***REMOVED***v>
+
+  <scr***REMOVED***pt>
+    const belt = document.getElementById('belt');
+
+    funct***REMOVED***on addSush***REMOVED***() {
+      const sush***REMOVED*** = document.createElement('d***REMOVED***v');
+      sush***REMOVED***.className = 'sush***REMOVED***';
+
+      const x = Math.floor(Math.random() * 3); // 0〜2
+      const y = Math.floor(Math.random() * 3); // 0〜2
+      const offsetX = -x * 682;
+      const offsetY = -y * 682;
+
+      sush***REMOVED***.style.backgroundPos***REMOVED***t***REMOVED***on = `${offsetX}px ${offsetY}px`;
+      sush***REMOVED***.style.marg***REMOVED***nLeft = `${Math.random() * 200}px`;
+      
+      belt.appendCh***REMOVED***ld(sush***REMOVED***);
+    }
+
+    // 最初に何個か追加
+    for (let ***REMOVED*** = 0; ***REMOVED*** < 20; ***REMOVED***++) {
+      addSush***REMOVED***();
+    }
+
+  </scr***REMOVED***pt>
+
+</body>
+</html>
